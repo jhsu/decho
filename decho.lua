@@ -26,24 +26,24 @@ function init()
   -- enable voice 1 play
   softcut.play(1, 1)
 
-  -- route audio input to voice 1
   softcut.level_input_cut(1, 1, 1.0)
-  softcut.level_input_cut(2, 1, 1.0)
+  softcut.level_input_cut(2, 1, 1.0)  
+
   -- set voice 1 record level
   softcut.rec_level(1, 1.0)
   -- start recording
   softcut.rec(1, 1)
-
-  -- route voice 1 output to voice 1 input with feedback level
-  softcut.level_cut_cut(1, 1, feedback_level)
-
+  
   -- enable softcut output
   softcut.play(1, 1)
   softcut.play(2, 1)
 
+  softcut.level(1, 1.0)
+  softcut.level(2, 1.0)
+
   -- route input to main output
-  softcut.level_cut_out(1, 1, 1.0)
-  softcut.level_cut_out(2, 2, 1.0)
+  softcut.level_cut_cut(1, 1, feedback_level)
+  softcut.level_cut_cut(2, 2, 1.0)
 end
 
 function enc(n, delta)
